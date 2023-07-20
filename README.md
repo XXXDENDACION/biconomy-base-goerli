@@ -1,7 +1,10 @@
 
-# Biconomy SDK Social Login + Gasless Transactions
 
-This is a starter kit that implements the Biconomy SDK into a basic React application built with Vite. This Kit comes with everything you need for social login and for making gasless transactions to a contract with the Biconomy SDK. 
+# Smart Account using Biconomy SDK Social Login Module + Gasless Transactions 
+
+________
+
+A starter kit that allows you to get smart account using biconomy SDK through social login and do gasless transactions for your users using Biconomy Paymaster! This Kit comes with everything you need for social login and for making gasless transactions to a contract with the Biconomy SDK. 
 
 
 ## Installation
@@ -12,10 +15,10 @@ Navigate to this directory in your terminal and then
   cd smartContract
 ```
 
-You can use npm to install but for these instructions I will be using yarn. It will work the same way with npm or pnpm. 
+You can use npm to install or maybe yarn. 
 
 ```bash
-  yarn
+  npm install
 ```
 
 Once dependencies are installed run the following command: 
@@ -24,9 +27,6 @@ Once dependencies are installed run the following command:
   cp .env.example .env;
 ```
 
-You will need to update the newly created .env file with your wallet's PRIVATE_KEY. Make sure to get API keys from [Etherscan](https://etherscan.io/) or [PolygonScan](https://polygonscan.com/). Create an account to get your API keys, these are free. 
-
-Run the command below to deploy your contract to the Polygon Mumbai Network. Make sure the wallet you got your private key from has a small amount of test matic for deployment. You can get test matic [here](https://faucet.polygon.technology/).
 
 ```bash
   npx hardhat run scripts/deploy.ts --network mumbai
@@ -38,13 +38,16 @@ Once deployed copy the contract address on the terminal and run the command belo
   npx hardhat verify --network mumbai <your-contract-address>
 ```
 
-This will verify your contract on Polygonscan and give you a link to your code on Polygonscan!
 
-## Biconomy Dashboard Registration
 
-Now head over to the [Biconomy SDK Dashboard](https://dashboard.biconomy.io/)
+## Setting up Paymaster and Dashboard for your dApp :
 
-Follow the instructionso on the docs [here](https://docs.biconomy.io/guides/biconomy-dashboard) to register your contract, load your gas tank, and grab your api key.
+1. Head over to the [Biconomy SDK Dashboard](https://dashboard.biconomy.io/)
+2. Setup your bundlerUrl: 'https://bundler.biconomy.io/api/v2/80001/abc'
+3. Get your Paymaster URL from Biconomy Dashboard . Follow the instructions on the docs [here](https://docs.biconomy.io/docs/dashboard/paymaster). It should look something like this paymasterUrl:'https://paymaster.biconomy.io/api/v1/{CHAIN_ID}/{ YOUR_API_KEY }'
+   
+4. Check out [Paymaster Policies](https://docs.biconomy.io/docs/dashboard/paymasterPolicies) to register your contract, load your gas tank.
+
 
 ## Frontend Configuration
 
@@ -58,7 +61,7 @@ In your terminal navigate to the root folder of the project and install dependen
   cp .env.example .env;
 ```
 
-Add your Biconomy API Key and your contract address in the .env file, and use the dev script to run: 
+Add your contract address in the .env file, and use the dev script to run: 
 
 ```bash
   yarn dev
@@ -67,7 +70,6 @@ Add your Biconomy API Key and your contract address in the .env file, and use th
 You should now be all set to try out the starter kit and begin making changes for your own project! 
 
 
-## Pull requests welcome
+## Pull requests are most welcome
 
-Have any improvements to be made? Feel free to make a Pull Request! 
-# scw-gasless-bico-modular
+
