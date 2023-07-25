@@ -38,6 +38,10 @@ Once deployed copy the contract address on the terminal and run the command belo
   npx hardhat verify --network mumbai <your-contract-address>
 ```
 
+NOTE:
+[base goerli contract verify](https://goerli.basescan.org/verifyContract)
+or fix hardhat
+
 
 
 ## Setting up Paymaster and Dashboard for your dApp :

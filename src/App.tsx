@@ -1,5 +1,5 @@
 import './App.css'
-import "@Biconomy/web3-auth/dist/src/style.css"
+// import "@Biconomy/web3-auth/dist/src/style.css"
 import { useState, useEffect, useRef } from 'react'
 import SocialLogin from "@biconomy/web3-auth"
 import { ChainId } from "@biconomy/core-types";
@@ -12,13 +12,13 @@ import styles from '@/styles/Home.module.css'
 
 
 const bundler: IBundler = new Bundler({
-  bundlerUrl: 'https://bundler.biconomy.io/api/v2/80001/abc', // you can get this value from biconomy dashboard.     
-  chainId: ChainId.POLYGON_MUMBAI,
+  bundlerUrl: 'https://bundler.biconomy.io/api/v2/84531/abc', // you can get this value from biconomy dashboard.     
+  chainId: ChainId.BASE_GOERLI_TESTNET,
   entryPointAddress: DEFAULT_ENTRYPOINT_ADDRESS,
 })
 
 const paymaster: IPaymaster = new BiconomyPaymaster({
-  paymasterUrl: 'https://paymaster.biconomy.io/api/v1/80001/cIhIeS-I0.7e1f17b1-6ebb-454c-8499-c5f66dd098c6' 
+  paymasterUrl: 'https://paymaster.biconomy.io/api/v1/84531/KEY' // From dashboard
 })
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
       const socialLoginSDK = new SocialLogin()
       const signature1 = await socialLoginSDK.whitelistUrl('https://aanft.vercel.app')
       await socialLoginSDK.init({
-        chainId: ethers.utils.hexValue(ChainId.POLYGON_MUMBAI).toString(),
+        chainId: ethers.utils.hexValue(ChainId.BASE_GOERLI_TESTNET).toString(),
         network: "testnet",
         whitelistUrls: {
           'https://aanft.vercel.app': signature1,
@@ -73,7 +73,7 @@ export default function Home() {
     try {
       const biconomySmartAccountConfig: BiconomySmartAccountConfig = {
         signer: web3Provider.getSigner(),
-        chainId: ChainId.POLYGON_MUMBAI,
+        chainId: ChainId.BASE_GOERLI_TESTNET,
         bundler: bundler,
         paymaster: paymaster
       }

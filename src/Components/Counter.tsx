@@ -22,6 +22,7 @@ const Counter: React.FC<Props> = ({ smartAccount, provider }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const counterAddress = import.meta.env.VITE_COUNTER_CONTRACT_ADDRESS;
+  console.log({ counterAddress });
 
   useEffect(() => {
     setIsLoading(true);
@@ -81,7 +82,8 @@ const Counter: React.FC<Props> = ({ smartAccount, provider }) => {
         const paymasterAndDataResponse = await biconomyPaymaster.getPaymasterAndData(partialUserOp, paymasterServiceData);
         partialUserOp.paymasterAndData = paymasterAndDataResponse.paymasterAndData;
 
-        const userOpResponse = await smartAccount.sendUserOp(partialUserOp);
+        const signOpUser = await smartAccount.signUserOp(partialUserOp);
+        const userOpResponse = await smartAccount.sendSignedUserOp(signOpUser);
         const transactionDetails = await userOpResponse.wait();
 
         console.log("Transaction Details:", transactionDetails);

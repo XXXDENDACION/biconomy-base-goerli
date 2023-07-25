@@ -15,12 +15,27 @@ const config: HardhatUserConfig = {
       url: "https://rpc.ankr.com/polygon",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
+    baseGoerli: {
+      url: "https://goerli.base.org",
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   etherscan: {
     apiKey: {
       polygonMumbai: process.env.POLYSCAN_API_KEY ?? "",
       polygon: process.env.POLYSCAN_API_KEY ?? "",
+      baseGoerli: process.env.POLYSCAN_API_KEY ?? ""
     },
+    customChains: [
+      {
+        network: "baseGoerli",
+        chainId: 84531,
+        urls: {
+          apiURL: "https://base-goerli.public.blastapi.io",
+          browserURL: "https://goerli.basescan.org/"
+        }
+      }
+    ]
   },
 };
 
