@@ -47,7 +47,7 @@ or fix hardhat
 ## Setting up Paymaster and Dashboard for your dApp :
 
 1. Head over to the [Biconomy SDK Dashboard](https://dashboard.biconomy.io/)
-2. Setup your bundlerUrl: 'https://bundler.biconomy.io/api/v2/80001/abc'
+2. Setup your bundlerUrl: 'https://bundler.biconomy.io/api/v2/84531/abc'
 3. Get your Paymaster URL from Biconomy Dashboard . Follow the instructions on the docs [here](https://docs.biconomy.io/docs/dashboard/paymaster). It should look something like this paymasterUrl:'https://paymaster.biconomy.io/api/v1/{CHAIN_ID}/{ YOUR_API_KEY }'
    
 4. Check out [Paymaster Policies](https://docs.biconomy.io/docs/dashboard/paymasterPolicies) to register your contract, load your gas tank.
